@@ -1,15 +1,30 @@
 [package]
-name = "tensorlab"
+name = "numera"
 version = "0.1.0"
 edition = "2024"
+authors = ["Mateo Campagna"]
 
 [dependencies]
-rand = "0.10.1"
+rand = "0.10.2"
 rayon = "1.12.0"
+thiserror = "2"
 
 [dev-dependencies]
 criterion = "0.8.2"
+approx = "0.5"
+proptest = "1"
+rstest = "0.26"
 
 [[bench]]
 name = "benchmark"
 harness = false
+
+[features]
+default = ["linalg"]
+linalg = []
+fft = []
+ode = []
+optimization = []
+interpolation = []
+stats = []
+full = ["linalg", "fft", "ode", "optimization", "interpolation", "stats"]
